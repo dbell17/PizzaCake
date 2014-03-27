@@ -21,21 +21,23 @@ public class Startup {
                 
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         
-        // Liskov Substition !!
+        
         Pizza pizza = new PepperoniPizza();
         
-        // Espresso has not been decorated here.
+        
         System.out.println(pizza.getDescription()
                 + " " + nf.format(pizza.cost()));
 
         Pizza pizza2 = new SausagePizza();
         
-        // Now let's decorate HouseBlend like this...
+       
         pizza2 = new ExtraCheese(pizza2);
-        pizza2 = new DoubleToppings(pizza2); // double Mocha
+        pizza2 = new DoubleToppings(pizza2); 
+        pizza2 = new Onions(pizza2);
+        pizza2 = new Mushrooms(pizza2);
+        pizza2 = new Pineapple(pizza2);
         
         
-        // Resulting coffee has combined cost and description.
         System.out.println(pizza2.getDescription()
                 + " " + nf.format(pizza2.cost()));
     }
